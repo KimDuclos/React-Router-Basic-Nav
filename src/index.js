@@ -1,7 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter as Router } from 'react-router-dom'; 
+import { Route} from 'react-router-dom';
 import App from './App';
-import 'bootstrap/dist/css/bootstrap.css';
+import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+ReactDOM.render(
+    <Router>
+      <div>
+        <App />
+        <Route exact path='/' component={Home}/>
+        <Route exact path='/about' component={About}/>
+        <Route path='/contact' component={Contact}/>
+      </div>
+    </Router>,
+    document.getElementById('root'));
+
+
